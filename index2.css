@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: white;
+    color: #000000; 
+}
+
+.layout-container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "section-content"
+        "descripcion"
+        "models"
+        "features"
+        "footer";
+    grid-template-rows: auto fr auto;
+    min-height: 100vh;
+}
+
+.header {
+    position: absolute;  /* Hace flotar el menú sobre el contenido inferior, permitiendo moverlo libremente */
+    top: 0; /* Pega el borde superior del menú al inicio exacto de la pantalla */
+    left: 0; /* Alinea el menú perfectamente con el extremo izquierdo de la pantalla */
+    width: 100%; /* Estira la barra del menú para que ocupe todo el ancho de la ventana de lado a lado */
+    z-index: 10; /* Capa de prioridad alta: asegura que el menú quede por encima de fotos o textos al bajar */
+    grid-area: header; /* Ubica este elemento en el espacio reservado para el "header" si usas una maqueta tipo CSS Grid */
+    background-color: #FFBF69 ;
+    color: #000000;
+    padding: 30px 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    gap: 70px;
+}
+
+.nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.section-content {
+    display: grid; /* Activa la tecnología CSS Grid, convirtiendo la sección en una cuadrícula invisible */
+    grid-template-columns: repeat(12, 1fr); /* Divide la pantalla en 12 columnas exactas de igual tamaño (1fr) para organizar el diseño */
+    background-color: #FFBF69;
+    align-items: center;
+    min-height: 70vh; /* Define una altura mínima equivalente al 70% del tamaño total de la pantalla del usuario */
+    padding: 5px 90px;
+    overflow: hidden; /* Tijera invisible: recorta automáticamente cualquier elemento o imagen que intente salirse de la sección */
+    position: relative; /* Funciona como un ancla para que los elementos flotantes internos (con posición absoluta) no se pierdan */
+}
+
+.presentacion {
+    grid-column: 1 / 8;
+    grid-row: 1;
+    z-index: 2;
+    color: white;
+}
+
+.presentacion h1 {
+    font-family: Arial, sans-serif;
+    font-size: 150px;
+    font-weight: 1000;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+}
+
+.presentacion h3 {
+    color: #ffffff;
+    font-size: 40px;
+    line-height: 1.5;
+    margin-bottom: 90px;
+    max-width: 600px;
+}
+
+.presentacion button {
+    background-color: #c8f7f4;
+    padding: 25px 90px;
+    border: none;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.img-section-content {
+    grid-column: 2 / 13;
+    grid-row: 1;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.background-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.descripcion {
+    background-color: white;
+    padding: 100px;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.descripcion h2 {
+    margin: 40px;
+    font-size: 40px;
+    line-height: 1.5;
+}
+
+.descripcion p {
+    padding: 0px 120px;
+}
+
+.models {
+    background-color: #cef6f4;
+    padding: 100px;
+}
+
+.title {
+    text-align: center;
+    margin: 40px;
+    font-size: 40px;
+    font-weight: bold
+}
+
+.catalogo {
+    display: flex;
+}
+
+.gallery-item-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    font-size: 20px;
+}
+
+.avatar1 {
+    width: 80%;
+    height: 60%;  
+}
+
+.gallery-item-1 button {
+    background-color: #FFBF69;
+    padding: 10px 50px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;    
+}
+
+.gallery-item-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    font-size: 20px;    
+}
+
+.avatar2 {
+    width: 50%;
+    height: 60%;  
+}
+
+.gallery-item-2 button {
+    background-color: #FFBF69;
+    padding: 10px 50px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;    
+}
+
+.gallery-item-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    font-size: 20px;
+}
+
+.avatar3 {
+    width: 55%;
+    height: 60%;  
+}
+
+.gallery-item-3 button {
+    background-color: #FFBF69;
+    padding: 10px 50px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;    
+}
+
+.features{
+    position: relative; /* Establece un punto de referencia para los elementos absolutos de adentro */
+    display: flex; /* Activa el diseño flexible para poner elementos lado a lado */
+    align-items: center; /* Centra verticalmente el texto y la imagen de la sección */
+    justify-content: space-between; /* Distribuye el espacio dejando los elementos en los extremos */
+    gap: 40px; /* Espacio de separación entre la columna de texto y la foto */
+    max-width: 1200px; /* Define el ancho máximo que puede alcanzar esta sección en pantallas grandes */
+    margin: 0 auto; /* Centra horizontalmente toda la sección en la pantalla */
+    padding: 90px 20px; /* Añade espacio interno arriba/abajo*/
+    overflow: hidden; /* Corta y oculta cualquier elemento que intente salirse por los laterales rojos */
+}
+
+.justicacion {
+    position: relative; /* Crea una base propia para que el óvalo naranja se acople detrás de ella */
+    flex: 1; /* Distribuye el espacio equitativamente para ocupar la mitad del contenedor */
+    padding: 60px 5px; /* Añade espacio interno para que las letras no toquen los bordes*/
+    z-index: 2; /* Levanta el texto en una capa superior para que se mantenga al frente */
+}   
+
+.justicacion h2 {
+    font-size: 40px;
+    margin-bottom: 20px; /* Agrega una separación hacia abajo antes de que empiece el párrafo */
+    color: #000000;
+}
+
+.justicacion p {
+    font-size: 20px;
+    line-height: 1.6; /* Establece la separación entre líneas de texto para mejorar la lectura */
+    color: #000000;
+}
+
+.background-features {
+    position: absolute; /* Desprende la figura del flujo normal para poder moverla libremente */
+    top: 60%; /* Alinea la parte superior del óvalo con el inicio del bloque de texto */
+    left: 0%; /* Desplaza el óvalo un poco hacia la izquierda para que sobresalga de la web */
+    transform: translateY(-50%);
+    width: 90%; /* Hace que la figura sea más ancha que el texto y lo envuelva bien */
+    height: 85%; /* Iguala la altura del óvalo con la altura completa del contenedor de texto */
+    z-index: -1; /* Empuja el óvalo hacia atrás de las letras para no tapar la lectura */
+    pointer-events: none; /* Desactiva la interacción física para que no interfiera si hay enlaces detrás */
+}
+
+.background1 {
+    width: 100%;  /* Fuerza a la imagen de fondo a ocupar todo el ancho disponible del contenedor */
+    height: 100%; /* Obliga a la imagen a llenar todo el alto del contenedor */
+    object-fit: fill; /* Estira o deforma la imagen para que adopte la silueta ovalada requerida */
+}
+
+.photo-play {
+    flex: 1; /* Distribuye el espacio equitativamente para ocupar la otra mitad del contenedor */
+    display: flex; /* Activa flexbox interno para manipular la alineación de la foto */
+    justify-content: center; /* Centra la imagen de forma horizontal en su propio espacio */
+}
+
+.photo-play img {
+    width: 100%; /* Hace que la foto sea responsiva adaptándose al contenedor */
+    max-width: 500px; /* Limita el tamaño de la foto para que no crezca demasiado en pantallas gigantes */
+    height: auto; /* Mantiene la proporción original de la imagen sin deformarla */
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #2c2c2c;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 40px;
+    gap: 100px;
+}
